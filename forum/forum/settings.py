@@ -72,6 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #设置MEDIA上传路径
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -135,6 +137,3 @@ STATICFILES_DIRS = (
 #上传文件路径
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-
-
-DEFAULT_CHARSET = 'GBK'

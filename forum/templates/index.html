@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title_extends %}indexÒ³Ãæ{% endblock %}
+{% block title_extends %}indexÒ³{% endblock %}
 
 {% block head_extends %}
-    <meta charset="UTF-8">
-    <title>Ê×Ò³_ÑîÇà¸öÈË²©¿Í - Ò»¸öÕ¾ÔÚwebÇ°¶ËÉè¼ÆÖ®Â·µÄÅ®¼¼ÊõÔ±¸öÈË²©¿ÍÍøÕ¾</title>
-    <meta name="keywords" content="¸öÈË²©¿Í,ÑîÇà¸öÈË²©¿Í,¸öÈË²©¿ÍÄ£°å,ÑîÇà" />
-    <meta name="description" content="ÑîÇà¸öÈË²©¿Í£¬ÊÇÒ»¸öÕ¾ÔÚwebÇ°¶ËÉè¼ÆÖ®Â·µÄÅ®³ÌÐòÔ±¸öÈËÍøÕ¾£¬Ìá¹©¸öÈË²©¿ÍÄ£°åÃâ·Ñ×ÊÔ´ÏÂÔØµÄ¸öÈËÔ­´´ÍøÕ¾¡£" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ò³_- Ò»Õ¾webÇ°Ö®Â·Ô±Õ¾</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="Í£Ò»Õ¾webÇ°Ö®Â·Õ¾Ô´Ä¸Ô­Õ¾" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
@@ -21,16 +21,16 @@
     <![endif]-->
 {% endblock %}
 
-{# ÄÚÈÝ #}
+{#  #}
 {% block content %}
     <article>
   <!--banner begin-->
  <div class="picsbox">
   <div class="banner">
     <div id="banner" class="fader">
-      <li class="slide" ><a href="/" target="_blank"><img src="images/banner01.jpg"><span class="imginfo">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</span></a></li>
-      <li class="slide" ><a href="/" target="_blank"><img src="images/banner02.jpg"><span class="imginfo">ÍøÒ³ÖÐÍ¼Æ¬ÊôÐÔ¹Ì¶¨¿í¶È£¬ÈçºÎÓÃjs¸Ä±ä´óÐ¡</span></a></li>
-      <li class="slide" ><a href="/" target="_blank"><img src="images/banner03.jpg"><span class="imginfo">¸öÈË²©¿Í£¬ÊôÓÚÎÒµÄÐ¡ÊÀ½ç£¡</span></a></li>
+        {% for sowing_map in all_sowing_map %}
+            <li class="slide" ><img src="{{ MEDIA_URL }}{{ sowing_map.images }}"><span class="imginfo">{{ sowing_map.title }}</span></a></li>
+        {% endfor %}
       <div class="fader_controls">
         <div class="page prev" data-target="prev">&lsaquo;</div>
         <div class="page next" data-target="next">&rsaquo;</div>
@@ -41,372 +41,120 @@
   </div>
   <!--banner end-->
   <div class="toppic">
-    <li> <a href="/" target="_blank"> <i><img src="images/toppic01.jpg"></i>
-      <h2>±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</h2>
-      <span>Ñ§ÎÞÖ¹¾³</span> </a> </li>
-    <li> <a href="/" target="_blank"> <i><img src="images/zd01.jpg"></i>
-      <h2>¸öÈË²©¿Í£¬ÊôÓÚÎÒµÄÐ¡ÊÀ½ç£¡</h2>
-      <span>Ñ§ÎÞÖ¹¾³</span> </a> </li>
+    <li> <a href="/" target="_blank"> <i><img src="{% static 'images/toppic01.jpg' %}">å¤§å¤§</i>
+      <h2>aaaaa</h2>
+      <span>Ñ§Ö¹</span> </a> </li>
+    <li> <a href="/" target="_blank"> <i><img src="{% static 'images/zd01.jpg' %}images/zd01.jpg"></i>
+      <h2>aaaaa</h2>
+      <span>aaaaa</span> </a> </li>
   </div>
   </div>
   <div class="blank"></div>
   <!--blogsbox begin-->
-  <div class="blogsbox">
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="blogpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
+        {% for forum in all_forum %}
+            <div class="blogsbox">
+                 <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
+                  <h3 class="blogtitle"><a href="/" target="_blank">{{ forum.title }}</a></h3>
+                  <p class="blogtext">{{ forum.comment|safe }}</p>
+                  <div class="bloginfo">
+                    <ul>
+                      <li class="author"><a href="/">{{ forum.author.username }}</a></li>
+                      <li class="lmname"><a href="/">{{ forum.forum_type }}</a></li>
+                      <li class="timer">{{ forum.add_time|date:"Y-m-d" }}</li>
+                      <li class="view">4567</li>
+                      <li class="like">9999</li>
+                    </ul>
+                  </div>
     </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">µÛ¹úcms Ê×Ò³»òÕßÁÐ±íÒ³ ÊµÏÖÍ¼ÎÄ²»Í¬ÑùÊ½µ÷ÓÃ·½·¨</a></h3>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡...</p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view">4567ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bplist"><a href="/" title="">
-      <li><img src="images/avatar.jpg" alt=""></li>
-      <li><img src="images/toppic02.jpg" alt=""></li>
-      <li><img src="images/banner01.jpg" alt=""></li>
-      </a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bigpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="blogpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">µÛ¹úcms Ê×Ò³»òÕßÁÐ±íÒ³ ÊµÏÖÍ¼ÎÄ²»Í¬ÑùÊ½µ÷ÓÃ·½·¨</a></h3>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡...</p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view">4567ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bplist"><a href="/" title="">
-      <li><img src="images/avatar.jpg" alt=""></li>
-      <li><img src="images/bi05.jpg" alt=""></li>
-      <li><img src="images/banner01.jpg" alt=""></li>
-      </a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="blogpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">µÛ¹úcms Ê×Ò³»òÕßÁÐ±íÒ³ ÊµÏÖÍ¼ÎÄ²»Í¬ÑùÊ½µ÷ÓÃ·½·¨</a></h3>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡...</p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view">4567ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bplist"><a href="/" title="">
-      <li><img src="images/avatar.jpg" alt=""></li>
-      <li><img src="images/toppic02.jpg" alt=""></li>
-      <li><img src="images/banner01.jpg" alt=""></li>
-      </a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bigpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="blogpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">µÛ¹úcms Ê×Ò³»òÕßÁÐ±íÒ³ ÊµÏÖÍ¼ÎÄ²»Í¬ÑùÊ½µ÷ÓÃ·½·¨</a></h3>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡...</p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view">4567ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bplist"><a href="/" title="">
-      <li><img src="images/avatar.jpg" alt=""></li>
-      <li><img src="images/bi05.jpg" alt=""></li>
-      <li><img src="images/banner01.jpg" alt=""></li>
-      </a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bigpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">µÛ¹úcms Ê×Ò³»òÕßÁÐ±íÒ³ ÊµÏÖÍ¼ÎÄ²»Í¬ÑùÊ½µ÷ÓÃ·½·¨</a></h3>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡...</p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view">4567ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bplist"><a href="/" title="">
-      <li><img src="images/avatar.jpg" alt=""></li>
-      <li><img src="images/bi05.jpg" alt=""></li>
-      <li><img src="images/banner01.jpg" alt=""></li>
-      </a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ!</a></h3>
-      <span class="bigpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
-      <p class="blogtext">ÈçÍ¼£¬ÒªÊµÏÖÉÏÍ¼Ð§¹û£¬ÎÒ²ÉÓÃÈçÏÂ·½·¨£º1¡¢Ê×ÏÈÔÚÊý¾Ý¿âÄ£ÐÍ£¬Ôö¼Ó×Ö¶Î£¬·Ö±ðÊÇÍ¼Æ¬2£¬Í¼Æ¬3¡£2¡¢Ôö¼Ó±êÇ©Ä£°å£¬ÓÃif£¬else if À´ÅÐ¶Ï£¬Êä³ö¡£Ë¼Â·ÒÑ´ò¿ª£¬ÑùÊ½µ÷ÓÃ¾Í¿ÉÒÔ¶àÑù»¯À²£¡... </p>
-      <div class="bloginfo">
-        <ul>
-          <li class="author"><a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">2018-5-13</li>
-          <li class="view"><span>34567</span>ÒÑÔÄ¶Á</li>
-          <li class="like">9999</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+            </div>
+        {% endfor %}
   <!--blogsbox end-->
   <div class="sidebar">
     <div class="zhuanti">
-      <h2 class="hometitle">ÌØ±ðÍÆ¼ö</h2>
+      <h2 class="hometitle">Æ¼</h2>
       <ul>
         <li> <i><img src="images/banner03.jpg"></i>
-          <p>µÛ¹úcmsµ÷ÓÃ·½·¨ <span><a href="/">ÔÄ¶Á</a></span> </p>
+          <p>Û¹cms <span><a href="/"></a></span> </p>
         </li>
         <li> <i><img src="images/b04.jpg"></i>
-          <p>5.20 ÎÒÏë¶ÔÄãËµ <span><a href="/">ÔÄ¶Á</a></span></p>
+          <p>5.20  <span><a href="/"></a></span></p>
         </li>
         <li> <i><img src="images/b05.jpg"></i>
-          <p>¸öÈË²©¿Í£¬ÊôÓÚÎÒµÄÐ¡ÊÀ½ç£¡ <span><a href="/">ÔÄ¶Á</a></span></p>
+          <p>Í£ç£¡ <span><a href="/"></a></span></p>
         </li>
       </ul>
     </div>
     <div class="tuijian">
-      <h2 class="hometitle">ÍÆ¼öÎÄÕÂ</h2>
+      <h2 class="hometitle"></h2>
       <ul class="tjpic">
         <i><img src="images/toppic01.jpg"></i>
-        <p><a href="/">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ</a></p>
+        <p><a href="/">Ò³/a></p>
       </ul>
       <ul class="sidenews">
         <li> <i><img src="images/toppic01.jpg"></i>
-          <p><a href="/">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ</a></p>
+          <p><a href="/">Ò³/a></p>
           <span>2018-05-13</span> </li>
         <li> <i><img src="images/toppic02.jpg"></i>
-          <p><a href="/">¸øÎÒÄ£°åPSDÔ´ÎÄ¼þ£¬ÎÒ¸øÄãÉè¼ÆHTML£¡</a></p>
+          <p><a href="/">Ä£SDÔ´TML</a></p>
           <span>2018-05-13</span> </li>
         <li> <i><img src="images/v1.jpg"></i>
-          <p><a href="/">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ</a></p>
+          <p><a href="/">Ò³/a></p>
           <span>2018-05-13</span> </li>
         <li> <i><img src="images/v2.jpg"></i>
-          <p><a href="/">¸øÎÒÄ£°åPSDÔ´ÎÄ¼þ£¬ÎÒ¸øÄãÉè¼ÆHTML£¡</a></p>
+          <p><a href="/">Ä£SDÔ´TML</a></p>
           <span>2018-05-13</span> </li>
       </ul>
     </div>
     <div class="tuijian">
-      <h2 class="hometitle">µã»÷ÅÅÐÐ</h2>
+      <h2 class="hometitle"></h2>
       <ul class="tjpic">
         <i><img src="images/toppic01.jpg"></i>
-        <p><a href="/">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ</a></p>
+        <p><a href="/">Ò³/a></p>
       </ul>
       <ul class="sidenews">
         <li> <i><img src="images/toppic01.jpg"></i>
-          <p><a href="/">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·</a></p>
+          <p><a href="/"></a></p>
           <span>2018-05-13</span> </li>
         <li> <i><img src="images/toppic02.jpg"></i>
-          <p><a href="/">¸øÎÒÄ£°åPSDÔ´ÎÄ¼þ£¬ÎÒ¸øÄãÉè¼ÆHTML£¡</a></p>
+          <p><a href="/">Ä£SDÔ´TML</a></p>
           <span>2018-05-13</span> </li>
         <li> <i><img src="images/v1.jpg"></i>
-          <p><a href="/">±ðÈÃÕâÐ©ÄÖÐÄµÄÌ×Â·£¬»ÙÁËÄãµÄÍøÒ³Éè¼Æ</a></p>
+          <p><a href="/">Ò³/a></p>
           <span>2018-05-13</span> </li>
         <li> <i><img src="images/v2.jpg"></i>
-          <p><a href="/">¸øÎÒÄ£°åPSDÔ´ÎÄ¼þ£¬ÎÒ¸øÄãÉè¼ÆHTML£¡</a></p>
+          <p><a href="/">Ä£SDÔ´TML</a></p>
           <span>2018-05-13</span> </li>
       </ul>
     </div>
     <div class="cloud">
-      <h2 class="hometitle">±êÇ©ÔÆ</h2>
+      <h2 class="hometitle"></h2>
       <ul>
-        <a href="/">Ä°ÉÏ»¨¿ª</a> <a href="/">Ð£Ô°Éú»î</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">Çà´º</a> <a href="/">ÎÂÅ¯</a> <a href="/">Ñô¹â</a> <a href="/">ÈýÐÇ</a><a href="/">Ë÷Äá</a> <a href="/">»ªÎ¬ÈÙÒ«</a> <a href="/">ÈýÐÇ</a> <a href="/">Ë÷Äá</a>
+        <a href="/">Ä°</a> <a href="/">Ð£Ô°/a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/"></a> <a href="/">Å¯</a> <a href="/">/a> <a href="/"></a><a href="/"></a> <a href="/">Î¬Ò«</a> <a href="/"></a> <a href="/"></a>
       </ul>
     </div>
     <div class="links">
-      <h2 class="hometitle">ÓÑÇéÁ´½Ó</h2>
+      <h2 class="hometitle">/h2>
       <ul>
-        <li><a href="http://www.yangqq.com" target="_blank">ÑîÇà²©¿Í</a></li>
-        <li><a href="http://www.yangqq.com" target="_blank">DÉè¼ÆÊ¦²©¿Í</a></li>
-        <li><a href="http://www.yangqq.com" target="_blank">ÓÅÐã¸öÈË²©¿Í</a></li>
+        <li><a href="http://www.yangqq.com" target="_blank">/a></li>
+        <li><a href="http://www.yangqq.com" target="_blank">D/a></li>
+        <li><a href="http://www.yangqq.com" target="_blank">/a></li>
       </ul>
     </div>
     <div class="guanzhu" id="follow-us">
-      <h2 class="hometitle">¹Ø×¢ÎÒÃÇ Ã´Ã´ßÕ£¡</h2>
+      <h2 class="hometitle"> Ã´Ã´</h2>
       <ul>
-        <li class="sina"><a href="/" target="_blank"><span>ÐÂÀËÎ¢²©</span>ÑîÇà²©¿Í</a></li>
-        <li class="tencent"><a href="/" target="_blank"><span>ÌÚÑ¶Î¢²©</span>ÑîÇà²©¿Í</a></li>
-        <li class="qq"><a href="/" target="_blank"><span>QQºÅ</span>476847113</a></li>
-        <li class="email"><a href="/" target="_blank"><span>ÓÊÏäÕÊºÅ</span>dancesmiling@qq.com</a></li>
-        <li class="wxgzh"><a href="/" target="_blank"><span>Î¢ÐÅºÅ</span>yangqq_1987</a></li>
+        <li class="sina"><a href="/" target="_blank"><span></span>/a></li>
+        <li class="tencent"><a href="/" target="_blank"><span>Ñ¶Î¢</span>/a></li>
+        <li class="qq"><a href="/" target="_blank"><span>QQ/span>476847113</a></li>
+        <li class="email"><a href="/" target="_blank"><span>/span>dancesmiling@qq.com</a></li>
+        <li class="wxgzh"><a href="/" target="_blank"><span>Î¢/span>yangqq_1987</a></li>
         <li class="wx"><img src="images/wx.jpg"></li>
       </ul>
     </div>
   </div>
 </article>
     <footer>
-  <p>Design by <a href="http://www.yangqq.com" target="_blank">ÑîÇà¸öÈË²©¿Í</a> <a href="/">ÊñICP±¸11002373ºÅ-1</a></p>
+  <p>Design by <a href="http://www.yangqq.com" target="_blank">/a> <a href="/">ICP110023731</a></p>
 </footer>
     <a href="#" class="cd-top">Top</a>
 {% endblock %}

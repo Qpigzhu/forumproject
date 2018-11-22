@@ -23,7 +23,10 @@ from .views import index
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     #图片上传URL
-    re_path('media/(?P<path>.*)$',serve,{"document_root":MEDIA_ROOT}),
+    re_path('media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     path('', index, name="index"),#主页
     path('operation/', include('operation.urls')),#用户操作
+
+    # # 帖子URL
+    # path('forum/', include('userforum.urls')),
 ]
