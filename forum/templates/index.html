@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 <article> 
   <!--banner begin-->
@@ -18,12 +19,12 @@
   </div>
   <!--banner end-->
   <div class="toppic">
-    <li> <a href="/" target="_blank"> <i><img src="images/toppic01.jpg"></i>
-      <h2>ҳ</h2>
-      <span>ѧֹ</span> </a> </li>
-    <li> <a href="/" target="_blank"> <i><img src="images/zd01.jpg"></i>
-      <h2>ͣ磡</h2>
-      <span>ѧֹ</span> </a> </li>
+    <li> <a href="/" target="_blank"> <i><img src="{% static 'images/toppic01.jpg' %}"></i>
+      <h2>标题</h2>
+    </a></li>
+    <li> <a href="/" target="_blank"> <i><img src="{% static 'images/zd01.jpg' %}"></i>
+      <h2>标题</h2>
+      </a></li>
   </div>
   </div>
   <div class="blank"></div>
@@ -47,85 +48,16 @@
   </div>
   <!--blogsbox end-->
   <div class="sidebar">
-    <div class="zhuanti">
-      <h2 class="hometitle">Ƽ</h2>
-      <ul>
-        <li> <i><img src="images/banner03.jpg"></i>
-          <p>۹cms <span><a href="/"></a></span> </p>
-        </li>
-        <li> <i><img src="images/b04.jpg"></i>
-          <p>5.20  <span><a href="/"></a></span></p>
-        </li>
-        <li> <i><img src="images/b05.jpg"></i>
-          <p>ͣ磡 <span><a href="/"></a></span></p>
-        </li>
-      </ul>
-    </div>
     <div class="tuijian">
-      <h2 class="hometitle"></h2>
-      <ul class="tjpic">
-        <i><img src="images/toppic01.jpg"></i>
-        <p><a href="/">ҳ/a></p>
-      </ul>
-      <ul class="sidenews">
-        <li> <i><img src="images/toppic01.jpg"></i>
-          <p><a href="/">ҳ/a></p>
-          <span>2018-05-13</span> </li>
-        <li> <i><img src="images/toppic02.jpg"></i>
-          <p><a href="/">ģSDԴTML</a></p>
-          <span>2018-05-13</span> </li>
-        <li> <i><img src="images/v1.jpg"></i>
-          <p><a href="/">ҳ/a></p>
-          <span>2018-05-13</span> </li>
-        <li> <i><img src="images/v2.jpg"></i>
-          <p><a href="/">ģSDԴTML</a></p>
-          <span>2018-05-13</span> </li>
-      </ul>
-    </div>
-    <div class="tuijian">
-      <h2 class="hometitle"></h2>
-      <ul class="tjpic">
-        <i><img src="images/toppic01.jpg"></i>
-        <p><a href="/">ҳ/a></p>
-      </ul>
-      <ul class="sidenews">
-        <li> <i><img src="images/toppic01.jpg"></i>
-          <p><a href="/"></a></p>
-          <span>2018-05-13</span> </li>
-        <li> <i><img src="images/toppic02.jpg"></i>
-          <p><a href="/">ģSDԴTML</a></p>
-          <span>2018-05-13</span> </li>
-        <li> <i><img src="images/v1.jpg"></i>
-          <p><a href="/">ҳ/a></p>
-          <span>2018-05-13</span> </li>
-        <li> <i><img src="images/v2.jpg"></i>
-          <p><a href="/">ģSDԴTML</a></p>
-          <span>2018-05-13</span> </li>
-      </ul>
+      <h2 class="hometitle">aaa</h2>
     </div>
     <div class="cloud">
-      <h2 class="hometitle"></h2>
+      <h2 class="hometitle">帖子类型</h2>
       <ul>
-        <a href="/">İ</a> <a href="/">У԰/a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/"></a> <a href="/">ů</a> <a href="/">/a> <a href="/"></a><a href="/"></a> <a href="/">άҫ</a> <a href="/"></a> <a href="/"></a>
-      </ul>
-    </div>
-    <div class="links">
-      <h2 class="hometitle">/h2>
-      <ul>
-        <li><a href="http://www.yangqq.com" target="_blank">/a></li>
-        <li><a href="http://www.yangqq.com" target="_blank">D/a></li>
-        <li><a href="http://www.yangqq.com" target="_blank">/a></li>
-      </ul>
-    </div>
-    <div class="guanzhu" id="follow-us">
-      <h2 class="hometitle"> ôô</h2>
-      <ul>
-        <li class="sina"><a href="/" target="_blank"><span></span>/a></li>
-        <li class="tencent"><a href="/" target="_blank"><span>Ѷ΢</span>/a></li>
-        <li class="qq"><a href="/" target="_blank"><span>QQ/span>476847113</a></li>
-        <li class="email"><a href="/" target="_blank"><span>/span>dancesmiling@qq.com</a></li>
-        <li class="wxgzh"><a href="/" target="_blank"><span>΢/span>yangqq_1987</a></li>
-        <li class="wx"><img src="images/wx.jpg"></li>
+          {% for forum_type in all_forum_type %}
+        <a href="/">{{ forum_type.type_name }}</a>
+          {% endfor %}
+
       </ul>
     </div>
   </div>
