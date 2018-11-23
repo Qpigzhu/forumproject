@@ -4,17 +4,19 @@
   <h1 class="t_nav"><span></span><a href="" class="n1"></a><a href="" class="n2"></a></h1>
   <div class="infosbox">
     <div class="newsview">
-      <h3 class="news_title">啊啊啊</h3>
+      <h3 class="news_title">{{ forum.title }}</h3>
       <div class="bloginfo">
         <ul>
-          <li class="author">啊啊<a href=""></a></li>
-          <li class="lmname"><a href="file:///C:/"></a></li>
-          <li class="timer">2018-5-13</li>
+          <li class="author">{{ forum.author.nice_name }}<a href=""></a></li>
+          <li class="lmname"><a href="">{{ forum.forum_type.type_name }}</a></li>
+          <li class="timer">{{ forum.add_time|date:"Y-m-d" }}</li>
           <li class="view">4567</li>
           <li class="like">8888888</li>
         </ul>
       </div>
-      <div class="tags"><a href="" target="_blank">啊啊</div>
+      <div class="tags"><a>{{ forum.forum_type.type_name }}</a></div>
+      <div class="news_con">{{ forum.comment }}</div>
+
     </div>
     <div class="share">
       <p class="diggit"><a href="JavaScript:makeRequest(&#39;/e/public/digg/?classid=3&amp;id=19&amp;dotop=1&amp;doajax=1&amp;ajaxarea=diggnum&#39;,&#39;EchoReturnedText&#39;,&#39;GET&#39;,&#39;&#39;);"> 啊啊啊啊 </a>(<b id="diggnum"><script type="text/javascript" src="./ѧ?ֹ??_?????????- һ??վ?webǰ???֮·??????Ա????????վ_files/saved_resource"></script>13</b>)</p>
@@ -28,12 +30,12 @@
 {#    评论区#}
   <div class="blogsbox" style="margin-top: 30px;">
         <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="/" target="_blank">adasdasda</a></h3>
+      <h3 class="blogtitle"><a href="/" target="_blank">dsds</a></h3>
       <div class="bloginfo">
         <ul>
-          <li class="author"><a href="/">dsdsd</a></li>
-          <li class="lmname"><a href="/">dsdsa}ֹ</a></li>
-          <li class="timer">dssds</li>
+          <li class="author"><a href="/">dsds</a></li>
+          <li class="lmname"><a href="/">dsds</a></li>
+          <li class="timer">dsds</li>
           <li class="view"><span>34567</span></li>
           <li class="like">9999</li>
         </ul>
