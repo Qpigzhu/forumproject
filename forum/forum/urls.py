@@ -27,6 +27,6 @@ urlpatterns = [
     path('', index, name="index"),#主页
     path('operation/', include('operation.urls')),#用户操作
 
-    # # 帖子URL
-    # path('forum/', include('userforum.urls')),
+    # 帖子URL
+    path('forum/', include('userforum.urls')),
 ]
