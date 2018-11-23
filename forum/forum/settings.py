@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'xadmin',
     'crispy_forms',
+    'pure_pagination', #分页第三方插件
     'operation.apps.OperationConfig', #用户操作
     'user.apps.UserConfig', #用户信息
     'userforum.apps.UserforumConfig', #用户帖子
