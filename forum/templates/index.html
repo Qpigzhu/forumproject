@@ -32,8 +32,9 @@
   <div class="blogsbox">
       {% for forum in all_forum %}
         <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-      <h3 class="blogtitle"><a href="{% url 'forum_datil' forum.id %}" target="_blank">{{ forum.title }}</a></h3>
+      <h3 class="blogtitle"><a href="{% url 'forum_datil' forum.id %}?from={{ request.get_full_path }}" target="_Self">{{ forum.title }}</a></h3>
       <p class="blogtext">{{ forum.comment|safe|truncatechars:20 }}</p>
+
       <div class="bloginfo">
         <ul>
           <li class="author"><a href="/">{{ forum.author.nice_name }}</a></li>
@@ -47,6 +48,9 @@
       </div>
     </div>
       {% endfor %}
+    <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
+      <h3 class="blogtitle" style="text-align: center;"><a href="{% url 'forum_list' %}" target="_Self">加载更多</a></h3>
+    </div>
   </div>
   <!--blogsbox end-->
   <div class="sidebar">
@@ -57,7 +61,7 @@
       <h2 class="hometitle">帖子类型</h2>
       <ul>
           {% for forum_type in all_forum_type %}
-        <a href="/">{{ forum_type.type_name }}</a>
+        <a href="{% url 'forum_type' forum_type.id %}">{{ forum_type.type_name }}</a>
           {% endfor %}
 
       </ul>

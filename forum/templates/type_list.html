@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'list.html' %}
+
+
 {% block main %}
 <div class="container">
-  <h1 class="t_nav" style="margin-top: 100px;"><span></span><a href="/" class="n1">首页</a><a href="/" class="n2">帖子列表</a></h1>
+  <h1 class="t_nav" style="margin-top: 100px;"><span></span><a href="/" class="n1">首页</a><a href="/" class="n2">{{ type_name.type_name }}</a></h1>
   <!--blogsbox begin-->
   <div class="blogsbox">
       {% for forum in all_forum.object_list %}
@@ -41,41 +42,4 @@
             {% endif %}
      </div>
   </div>
-{% endblock %}
-
-
-
-
-
-
-  <!--blogsbox end-->
-  <div class="sidebar">
-    <div class="zhuanti">
-      <h2 class="hometitle">点击</h2>
-      <ul>
-        <li> <i><img src="images/banner03.jpg"></i>
-          <p>?۹?cms??????? <span><a href="/">???</a></span> </p>
-        </li>
-        <li> <i><img src="images/b04.jpg"></i>
-          <p>5.20 ?????? <span><a href="/">???</a></span></p>
-        </li>
-        <li> <i><img src="images/b05.jpg"></i>
-          <p>??????ͣ?????????磡 <span><a href="/">???</a></span></p>
-        </li>
-      </ul>
-    </div>
-    <div class="cloud">
-      <h2 class="hometitle">帖子类型</h2>
-      <ul>
-          {% for forum_type in all_forum_type %}
-        <a href="{% url 'forum_type' forum_type.id %}">{{ forum_type.type_name }}</a>
-          {% endfor %}
-      </ul>
-    </div>
-  </div>
-</div>
-<footer>
-  <p>Design by <a href="http://www.yangqq.com" target="_blank">?????????/a> <a href="/">?ICP??11002373??1</a></p>
-</footer>
-<a href="#" class="cd-top">Top</a>
-{% endblock %}
+{% endblock %}   
