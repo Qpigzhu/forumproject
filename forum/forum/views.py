@@ -5,7 +5,7 @@ from userforum.models import Forum,SowingMap,ForumType
 
 
 def index(request):
-    all_forum = Forum.objects.all()
+    all_forum = Forum.objects.all()[:10]
     all_sowing_map = SowingMap.objects.all()
     all_forum_type = ForumType.objects.all()
     return render(request, 'index.html', {

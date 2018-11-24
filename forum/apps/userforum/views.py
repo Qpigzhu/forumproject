@@ -23,7 +23,7 @@ class ForumView(View):
             page = 1
 
         #进行分页处理
-        p = Paginator(all_forum,1,request=request)
+        p = Paginator(all_forum,7,request=request)
 
         #取出分页页数数据
         forum = p.page(page)
@@ -72,7 +72,7 @@ class ForumTypeView(View):
             page = 1
 
         #进行分页处理
-        p = Paginator(all_forum_type,1,request=request)
+        p = Paginator(all_forum_type,7,request=request)
 
         #取出分页页数数据
         forum = p.page(page)
