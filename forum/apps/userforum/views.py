@@ -1,9 +1,9 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,HttpResponse
 from django.views import View
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Forum,ForumType
+from .models import Forum,ForumType,ForumRead
 
 
 # Create your views here.
@@ -45,11 +45,41 @@ class ForumDatileView(View):
         #获取从哪里点进来的页面
         from_html = request.GET.get('from','')
 
-        return render(request, 'info.html', {
+        #获取阅读数量
+        try:
+            forum_read = ForumRead.objects.get(forum=forum)
+            form_read_number = forum_read.read_number
+        except:
+            form_read_number = 0
+
+        response = render(request, 'info.html', {
             "forum":forum,
             "all_forum_type":forum_type,
             "from_html":from_html,
+            "form_read_number":form_read_number,
         })
+        #返回key
+        key = 'forum_%s_read' % (forum_id)
+        # 读取cookie
+        cookie = request.COOKIES.get(key,'')
+        #如果cookie不存在,增加阅读数
+        if cookie == "":
+            #是否存在此帖子数据
+            read_forum, created = ForumRead.objects.get_or_create(forum=forum)
+            #若不存在数据
+            if created:
+                read_forum =ForumRead.objects.get(forum=forum)
+
+            #增加阅读数
+            read_forum.read_number += 1
+            read_forum.save()
+
+            #增加帖子数据阅读数
+            forum.read_number += 1
+            forum.save()
+            # 设置cookie为true
+            response.set_cookie(key, 'true')
+        return response
 
 
 #帖子类型
@@ -63,6 +93,8 @@ class ForumTypeView(View):
         form_count = all_forum_type.count()
         #获取所有帖子类型对象
         all_type = ForumType.objects.all()
+
+
 
         #分页插件
         try:

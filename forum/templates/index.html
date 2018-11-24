@@ -40,9 +40,8 @@
           <li class="author"><a href="/">{{ forum.author.nice_name }}</a></li>
           <li class="lmname"><a href="/">{{ forum.forum_type.type_name }}ֹ</a></li>
           <li class="timer">{{ forum.add_time|date:"Y-m-d" }}</li>
-          <li class="view"><span>34567</span></li>
+          <li class="view"><span>{{ forum.read_number }}</span></li>
           <li class="like">9999</li>
-
             <li>{{ forloop.counter }}</li>
         </ul>
       </div>

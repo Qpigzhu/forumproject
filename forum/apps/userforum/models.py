@@ -1,5 +1,6 @@
 from django.db import models
 from user.models import UserProfile
+from django.db.models.fields import exceptions
 # Create your models here.
 
 #帖子类型
@@ -20,8 +21,8 @@ class Forum(models.Model):
     title = models.CharField(max_length=15,verbose_name="标题")
     comment = models.TextField(verbose_name="帖子内容")
     forum_type = models.ForeignKey(ForumType,on_delete=models.CASCADE,verbose_name="帖子类型")
+    read_number = models.IntegerField(default=0, verbose_name="阅读数量")
     add_time = models.DateTimeField(auto_now_add=True,verbose_name="发帖时间")
-
 
     class Meta:
         verbose_name = "帖子"
@@ -45,3 +46,17 @@ class SowingMap(models.Model):
 
     def __str__(self):
         return self.title
+
+#帖子阅读数量
+class ForumRead(models.Model):
+    forum = models.ForeignKey(Forum,on_delete=models.CASCADE,verbose_name="帖子")
+    read_number = models.IntegerField(default=0,verbose_name="阅读数量")
+
+
+
+    class Meta:
+        verbose_name = "帖子阅读数"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return "{}:{}".format(self.forum,self.read_number)
