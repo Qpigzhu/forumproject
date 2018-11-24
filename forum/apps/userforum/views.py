@@ -94,8 +94,6 @@ class ForumTypeView(View):
         #获取所有帖子类型对象
         all_type = ForumType.objects.all()
 
-
-
         #分页插件
         try:
             #获取前端页数
