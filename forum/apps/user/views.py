@@ -35,13 +35,14 @@ def crop_image(current_avatar, file, data, uid):
     t_height = t_y + int(coords['height'])
     t_rotate = coords['rotate']
 
-    # 裁剪图片,压缩尺寸为400*400。
+    # 裁剪图片,压缩尺寸为300*300。
     img = Image.open(file)
     crop_im = img.crop((t_x, t_y, t_width, t_height)).resize((300, 300), Image.ANTIALIAS).rotate(t_rotate)
     #新建文件夹
     directory = os.path.dirname(file_path)
+
     #保存图片
-    if os.path.exists(directory):
+    if os.path.exists(directory): #判断是否存在此文件夹，存在返回Ture，不存在返回False
         crop_im.save(file_path)
     else:
         os.makedirs(directory)
