@@ -39,10 +39,11 @@ def crop_image(current_avatar, file, data, uid):
         os.makedirs(directory)
         crop_im.save(file_path)
 
-    # #删除旧的图片
-    # if not current_avatar == os.path.join("avatar", "default.jpg"):
-    #     current_avatar_path = os.path.join("media", str(uid), "avatar", os.path.basename(current_avatar.url))
-    #     os.remove(current_avatar_path)
+    ##删除旧的图片
+    #判断是否使用默认头像，否则进行删除操作
+    if not current_avatar == os.path.join("avatar", "default.png"):
+        current_avatar_path = os.path.join("media", str(uid), "avatar", os.path.basename(current_avatar.url))
+        os.remove(current_avatar_path)
 
     return cropped_avatar
 
