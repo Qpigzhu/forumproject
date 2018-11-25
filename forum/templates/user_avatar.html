@@ -84,11 +84,7 @@
                     if(data['code'] == '200'){
                         window.location.reload();//刷新当前页面.
                     }else{
-                        if(data['code'] == "500"){
-                            alert("用户未登录")
-                        }else{
-                            alert(data['msg'])
-                        }
+                        alert("请先登录再进行操作~")
                     }
                 }
         });

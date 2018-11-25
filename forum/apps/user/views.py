@@ -2,7 +2,7 @@ import uuid
 import os
 import json
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse
 from django.views import View
 from django.http import JsonResponse
 
@@ -11,6 +11,14 @@ from PIL import Image
 
 #处理头像
 def crop_image(current_avatar, file, data, uid):
+    """
+
+    :param current_avatar: 旧头像的路径
+    :param file: 用户上传头像文件
+    :param data: 裁剪图片的数据
+    :param uid: 用户id
+    :return:
+    """
     # 随机生成新的图片名，自定义路径。
     ext = file.name.split('.')[-1]
     file_name = '{}.{}'.format(uuid.uuid4().hex[:10], ext)
@@ -50,6 +58,10 @@ def crop_image(current_avatar, file, data, uid):
 #展示用户头像
 class UserAvatarView(View):
     def get(self,request):
+        #判断是否登录
+        if not request.user.is_authenticated:
+            return redirect(reverse("login_or_registered"))
+
         return render(request,'user_avatar.html',{
 
         })
@@ -60,14 +72,16 @@ class AvatarAjaxView(View):
         user = request.user
         #判断用户是否登录
         if not user.is_authenticated:
-            return JsonResponse({"code":"500","msg":"用户没有登录"})
+            return JsonResponse({"code":"401"})
 
+        #获取上传图片
         img = request.FILES['avatar_file']
+        #获取裁剪数据
         data = request.POST['avatar_data']
 
         #判断图像是否大于900 X 1200
-        if img.size/1024 > 700:
-            return JsonResponse({"msg": "图片尺寸应小于900 X 1200 像素, 请重新上传.", })
+        # if img.size/1024 > 700:
+        #     return JsonResponse({"msg": "图片尺寸应小于900 X 1200 像素, 请重新上传.", "code":"500"})
 
         #获取头像地址
         current_avatar = user.image
