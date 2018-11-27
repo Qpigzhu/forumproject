@@ -25,19 +25,16 @@
                 {% else %}
                 {# 登录 #}
                     <div id="login" style="display: block;">
-                  <form class="login100-form validate-form" action="{% url 'login_or_registered' %}" method="post">
-                    {% csrf_token %}
 					<span class="login100-form-title p-b-49">登录</span>
-
 					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
 						<span class="label-input100">用户名</span>
-						<input class="input100" required type="text" name="username" placeholder="请输入用户名" autocomplete="off">
+						<input class="input100" required type="text" id="user_login" name="username" placeholder="请输入用户名" autocomplete="off">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="请输入密码">
 						<span class="label-input100">密码</span>
-						<input class="input100" required type="password" name="password" placeholder="请输入密码">
+						<input class="input100" required type="password" id="pwd_login" name="password" placeholder="请输入密码">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
                     {# 登陆错误 #}
@@ -55,7 +52,8 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="submit" class="login100-form-btn">登 录</button>
+							<button type="button" onclick="login_user();" class="login100-form-btn">登 录</button>
+
 						</div>
 					</div>
 
@@ -80,12 +78,10 @@
 					<div class="flex-col-c p-t-25">
 						<a onclick="re()" href="javascript:" class="txt2">立即注册</a>
 					</div>
-				</form>
                     </div>
 
               {# 注册 #}
                 <div id="re" style="display: none;">
-                    <form class="login100-form validate-form" method="post">
                     {% csrf_token %}
 					<span class="login100-form-title p-b-49">注册</span>
 
@@ -112,12 +108,8 @@
 						<input class="input100" required type="password" name="password" placeholder="请再次确认密码">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
-                    {# 登陆错误 #}
+                     登陆错误
                     <span class="pull-left text-danger error">
-                        {% for k,v in login_form.errors.items %}
-                            {{ v }}
-                        {% endfor %}
-                    {{ errors }}
                     </span>
 
 					<div class="text-right p-t-8 p-b-31">
@@ -127,7 +119,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">注 册</button>
+							<button  type="button" onclick="re_user()" class="login100-form-btn">注 册</button>
 						</div>
 					</div>
 
@@ -152,7 +144,6 @@
 					<div class="flex-col-c p-t-25">
 						<a onclick="re()" href="javascript:" class="txt2">登录</a>
 					</div>
-				</form>
                 </div>
 
              {% endif %}
@@ -174,6 +165,42 @@
             document.getElementById('login').style.display = 'block';
             document.getElementById('re').style.display = 'none';
         }
+    }
+    //登录
+    function login_user() {
+        var user_login = $("#user_login").val()
+        var pwd_login = $("#pwd_login").val()
+
+        if(user_login=="" || pwd_login == ""){
+            alert("用户名或密码不能为空");
+        }else{
+            $.ajax({
+            cache:false,
+            type:'post',
+            url:"{% url 'login_or_registered' %}",
+            data: {
+                "username":user_login,
+                "password":pwd_login,
+            },
+            ansyc:true,
+               beforeSend:function (xhr,settings) {
+                   xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+               },
+            success:function (data) {
+                    if(data['code'] == '200'){
+                        {#window.location.reload();//刷新当前页面.#}
+                        window.location.href ="{% url 'index' %}"
+                    }else{
+                        alert("密码或用户名错误")
+                    }
+                }
+        });
+        }
+    }
+
+    //注册
+    function re_user() {
+        alert("hi")
     }
     </script>
 {% endblock %}

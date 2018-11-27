@@ -12,7 +12,6 @@ from PIL import Image
 #处理头像
 def crop_image(current_avatar, file, data, uid):
     """
-
     :param current_avatar: 旧头像的路径
     :param file: 用户上传头像文件
     :param data: 裁剪图片的数据
@@ -62,7 +61,6 @@ class UserAvatarView(View):
         #判断是否登录
         if not request.user.is_authenticated:
             return redirect(reverse("login_or_registered"))
-
         return render(request,'user_avatar.html',{
 
         })
